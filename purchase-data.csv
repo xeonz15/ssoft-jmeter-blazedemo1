@@ -1,0 +1,9 @@
+inputName,address,city,state,zipCode,cardType,creditCardNumber,creditCardMonth,creditCardYear,nameOnCard,_token
+Name1,addr1,city1,state1,123456,visa,123456789,5,2011,namecard1,
+Name2,addr2,city2,state2,634567,amex,098765432,12,1999,namecard2,
+Name3,addr3,city3,state3,986432,dinersclub,0192837465,1,2020,namecard3,
+Name4,addr4,city4,state4,947546,amex,5432167890,8,2001,namecard4,
+
+
+
+            
