@@ -17,7 +17,7 @@
       </Arguments>
       <hashTree/>
       <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Purchase CSV Data Set Config" enabled="true">
-        <stringProp name="filename">C:/Users/user/Documents/Обучение JMeter/purchase-data.csv</stringProp>
+        <stringProp name="filename">../!Data/purchase-data.csv</stringProp>
         <stringProp name="fileEncoding"></stringProp>
         <stringProp name="variableNames">inputName,address,city,state,zipCode,cardType,creditCardNumber,creditCardMonth,creditCardYear,nameOnCard,_token</stringProp>
         <boolProp name="ignoreFirstLine">true</boolProp>
