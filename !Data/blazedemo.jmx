@@ -12,11 +12,91 @@
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-        <collectionProp name="Arguments.arguments"/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="GenerateVars" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="inputName" elementType="Argument">
+            <stringProp name="Argument.name">inputName</stringProp>
+            <stringProp name="Argument.value">Name_${__RandomString(5,abcdefghijklmnopqrstuvwxyz,)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="city" elementType="Argument">
+            <stringProp name="Argument.name">city</stringProp>
+            <stringProp name="Argument.value">City_${__RandomString(5,abcdefghijklmnopqrstuvwxyz,)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="state" elementType="Argument">
+            <stringProp name="Argument.name">state</stringProp>
+            <stringProp name="Argument.value">state_${__RandomString(5,abcdefghijklmnopqrstuvwxyz,)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="zipCode" elementType="Argument">
+            <stringProp name="Argument.name">zipCode</stringProp>
+            <stringProp name="Argument.value">${__Random(100000,999999)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="cardTypeVisa" elementType="Argument">
+            <stringProp name="Argument.name">cardTypeVisa</stringProp>
+            <stringProp name="Argument.value">visa</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="cardTypeAmex" elementType="Argument">
+            <stringProp name="Argument.name">cardTypeAmex</stringProp>
+            <stringProp name="Argument.value">amex</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="cardTypeDiner" elementType="Argument">
+            <stringProp name="Argument.name">cardTypeDiner</stringProp>
+            <stringProp name="Argument.value">dinersclub</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="creditCardNumber" elementType="Argument">
+            <stringProp name="Argument.name">creditCardNumber</stringProp>
+            <stringProp name="Argument.value">${__Random(100000000000,999999999999)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="creditCardMonth" elementType="Argument">
+            <stringProp name="Argument.name">creditCardMonth</stringProp>
+            <stringProp name="Argument.value">${__Random(1,12)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="creditCardYear" elementType="Argument">
+            <stringProp name="Argument.name">creditCardYear</stringProp>
+            <stringProp name="Argument.value">${__Random(1980,2020)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="nameOnCard" elementType="Argument">
+            <stringProp name="Argument.name">nameOnCard</stringProp>
+            <stringProp name="Argument.value">${__RandomString(1,QWERTYUIOPASDFGHJKLZXCVBNM,)}${__RandomString(7,abcdefghijklmnopqrstuvwxyz,)} ${__RandomString(1,QWERTYUIOPASDFGHJKLZXCVBNM,)}${__RandomString(7,abcdefghijklmnopqrstuvwxyz,)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="_token" elementType="Argument">
+            <stringProp name="Argument.name">_token</stringProp>
+            <stringProp name="Argument.value"></stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
       </Arguments>
       <hashTree/>
-      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Purchase CSV Data Set Config" enabled="true">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Generate cardType" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="cardType" elementType="Argument">
+            <stringProp name="Argument.name">cardType</stringProp>
+            <stringProp name="Argument.value">${__RandomFromMultipleVars(cardTypeVisa|cardTypeAmex|cardTypeDiner)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Generate random address" enabled="true">
+        <stringProp name="maximumValue">9999</stringProp>
+        <stringProp name="minimumValue">1000</stringProp>
+        <stringProp name="outputFormat">Street_${__RandomString(5,abcdefghijklmnopqrstuvwxyz,)} 0000</stringProp>
+        <boolProp name="perThread">false</boolProp>
+        <stringProp name="randomSeed"></stringProp>
+        <stringProp name="variableName">address</stringProp>
+      </RandomVariableConfig>
+      <hashTree/>
+      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Purchase CSV Data Set Config" enabled="false">
         <stringProp name="filename">../!Data/purchase-data.csv</stringProp>
         <stringProp name="fileEncoding"></stringProp>
         <stringProp name="variableNames">inputName,address,city,state,zipCode,cardType,creditCardNumber,creditCardMonth,creditCardYear,nameOnCard,_token</stringProp>
